@@ -1,0 +1,54 @@
+BEGIN
+	PROMPT"Enter rating between 1 to 10" AND STORE IN Rating
+IF(isValid(Rating))
+feedback=DisplayFeedback(Rasting)
+PRINT "feedback"+Feedback
+	PROMPT"Enter vehical type and type of serivce" AND STORE IN VehicalType,TypeOfSerivce
+	PROMPT"Enter the cost of vehicle"AND STORE IN CostOfVehicle 
+	
+	CALCULATE(Rating,VehicalType,TypeOfSerivce,CostOfVehicle)
+	PRINT "CostOfService"+CostOfService
+END
+
+SUB isValid(Rating)
+	IF((isDigits(Rating))
+		RETURN true
+	else
+		RETURN false
+	END IF
+EXCEPTION WHEN NoSuchElement THEN
+	PRINT errormessage//error message returned from exception
+END SUB
+
+SUB DisplayFeedback(Rating)
+
+	IF(Rating IS BETWEEN 1 AND 5)THEN
+		RETURN "poor"
+		
+	ELSE IF(Rating IS BETWEEN 1 AND 5)THEN
+		RETURN "good"
+		
+	ELSE IF(Rating IS BETWEEN 1 AND 5)THEN
+		RETURN "avg"
+		
+	ELSE(Rating IS BETWEEN 1 AND 5)THEN
+		RETURN   "excellent"
+	END IF
+EXCEPTION WHEN NoSuchElement THEN
+	PRINT errormessage//error message returned from exception
+END SUB
+
+SUB CALCULATE(Rating,VehicalType,TypeOfSerivce,CostOfVehicle)		
+	IF(TypeOfSerivce=F)
+		RETURN 200
+	ELSE IF(VehicalType=:"hatch back" AND TypeOfSerivce=F)
+		CostOfService=0.15*CoSToFserice
+		RETURN CostOfService
+	ELSE IF(VehicalType="small cars" AND TypeOfSerivce=F)
+		CostOfService=0.10*CoSToFserice
+		RETURN CostOfService
+	ELSE (VehicalType="SEDAN" AND TypeOfSerivce=F)
+		CostOfService=0.18*CoSToFserice
+		RETURN CostOfService
+	END IF
+END SUB
